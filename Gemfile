@@ -12,7 +12,11 @@ gem 'faker', '2.1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.5'
 gem 'kaminari'
+<<<<<<< HEAD
 gem 'paranoia', '~> 2.2'
+=======
+gem "paranoia", "~> 2.2"
+>>>>>>> 89032e5... Refactor user screen
 gem 'pg', '~> 1.3', '>= 1.3.5'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 1.1'

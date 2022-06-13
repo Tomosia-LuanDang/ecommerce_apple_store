@@ -23,6 +23,7 @@ import "/vendor/assets/javascripts/admin/main.js"
 import "./cart_product"
 import "./order"
 import "./admin/main"
+import "./home"
 
 import "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
