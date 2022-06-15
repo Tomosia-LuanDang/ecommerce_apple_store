@@ -8,9 +8,15 @@ $(document).ready(function(){
         address: address
       },
       success: function(r) {
+        if(r['address']){
         $(".name-address").val(r['address']['name']);
         $(".phone-address").val(r['address']['phone']);
         $(".current-address").val(r['address']['address']);
+        } else {
+          $(".name-address").val('');
+          $(".phone-address").val('');
+          $(".current-address").val('');
+        }
       }
     });
   });

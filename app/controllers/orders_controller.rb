@@ -21,8 +21,9 @@ class OrdersController < ApplicationController
       generates_charge
       @order.update(status: 1)
     end
+    redirect_to root_path
   end
-  
+
   private
 
   def generates_order
@@ -45,14 +46,13 @@ class OrdersController < ApplicationController
     end
     CartItem.where(cart_id: current_user.cart.id).delete_all
 
-    redirect_to root_path
     flash[:notice] = 'Order success!'
   end
 
   def generates_charge
     card_token = Stripe::Token.create({
       card: {
-        number:    params[:cart_number].delete(" "),
+        number:    params[:cart_number],
         exp_month: params[:expiration_date].split("/").first,
         exp_year:  '20' + params[:expiration_date].split("/").last,
         cvc:       '314',
@@ -63,13 +63,14 @@ class OrdersController < ApplicationController
       email:  params[:email_stripe],
       source: card_token.id
     )
-    amount = total_payment
+
+    amount = total_payment + params[:shipping_fee].to_f
 
     charge = Stripe::Charge.create(
       amount:      amount.to_i,
       customer:    customer.id,
       currency:    'vnd',
-      description: 'Rails Stripe customer'
+      description: "Rails Stripe customer pay for #{current_user.cart.cart_items.size} products"
     )
   end
 end

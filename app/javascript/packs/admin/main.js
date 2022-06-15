@@ -16,8 +16,8 @@ $(document).ready(function(){
   });
 });
 
-if($(".flash-alert").show()) {
+if($(".alert").show()) {
   setTimeout(function(){
-    $(".flash-alert").hide("3000")
+    $(".alert").hide("3000")
   }, 2500);
 }

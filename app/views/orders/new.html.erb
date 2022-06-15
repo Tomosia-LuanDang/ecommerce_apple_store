@@ -21,7 +21,7 @@
             <strong><%= format_number_to_currency @total_price %> đ</strong>
           </li>
         </ul>
-        <%= form_with url: "/orders", method: :post, local: false do |f| %>
+        <%= form_with url: "/orders", method: :post, local: true do |f| %>
         <div class="col-md-12 offset-md-12 col-10 offset-1 pl-0 pr-0 visually-hidden" id="form-payment">
           <div class="card">
             <div class="card-body">

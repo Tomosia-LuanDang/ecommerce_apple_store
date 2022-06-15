@@ -212,6 +212,6 @@ input:checked + .switch:active::before {
   padding-left: 0;
 }
 
-.category-name {
+.category-name, .delete-product, .delete-category {
   cursor: pointer;
 }
